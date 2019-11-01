@@ -1,0 +1,20 @@
+{
+    "name": "metawesome/imgfromurl",
+    "description": "Create a image file from URL with WKHTMLTOIMG",
+    "version": "0.0.1",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Adriano Zavareze Righi",
+            "email": "adriano.righi@meta.com.br"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Metawesome\\ImgFromUrl\\": "src/"
+        }
+    }
+}
