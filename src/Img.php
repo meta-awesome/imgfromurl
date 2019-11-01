@@ -36,6 +36,8 @@ class Img
      */
     protected $_isCreated = false;
 
+    protected $options = [];
+
     public function fromUrl(string $url)
     {
         if(empty($url)) {
@@ -78,6 +80,13 @@ class Img
         }
 
         $command = $this->getCommand();
+
+        if (!empty($this->options)) {
+            foreach($this->options as $option) {
+                $command->addArg($option);
+            }
+        }
+
         $command->addArg("'{$this->url}'", $filename, null, true);    // Always escape filename
         if (!$command->execute()) {
             $this->_error = $command->getError();
@@ -93,6 +102,13 @@ class Img
         $this->_isCreated = true;
 
         return true;
+    }
+
+    public function addOption(string $option)
+    {
+        if (!empty($option)) {
+            array_push($this->options, $option);
+        }
     }
 
     /**
